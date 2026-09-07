@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#132323">
+  <meta name="description" content="Вокзал. Первая глава: играбельная история об остановившемся времени. Архитектура по мотивам Antwerpen-Centraal.">
+  <title>Вокзал · 13:59:59</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23132323'/%3E%3Ccircle cx='32' cy='32' r='23' fill='none' stroke='%23d8b778' stroke-width='3'/%3E%3Cpath d='M32 14v18l-13 8' fill='none' stroke='%23d8b778' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="game" aria-label="Вокзал — трёхмерная игра">
+    <canvas id="world" aria-label="Трёхмерный вокзал. Движение WASD или экранным джойстиком." tabindex="0"></canvas>
+    <div id="vignette" aria-hidden="true"></div>
+    <div id="fade" aria-hidden="true"></div>
+    <header id="hud" hidden>
+      <div class="chapter"><span>ГЛАВА I</span><b>Вокзал</b><small id="place">ЗАЛ ОЖИДАНИЯ</small></div>
+      <div class="clock"><span id="time">13:59:59</span><small id="time-caption">ВРЕМЯ ОСТАНОВИЛОСЬ</small></div>
+      <nav class="tools" aria-label="Меню игры">
+        <button id="journal-btn" title="Записи — J" aria-label="Открыть записи">Записи <span id="memory-count">0/3</span></button>
+        <button id="pause-btn" aria-label="Пауза">Ⅱ</button>
+      </nav>
+    </header>
+    <div id="objective" hidden><i></i><span id="objective-text">Поговорить с мальчиком</span></div>
+    <div id="crosshair" aria-hidden="true" hidden><i></i></div>
+    <button id="interact" hidden><span id="interact-key">E</span><span id="interact-text">Поговорить</span></button>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <div id="subtitle" role="status"></div>
+    <div id="touch-controls" hidden>
+      <div id="joystick" aria-label="Джойстик движения"><div id="stick"></div></div>
+      <div class="look-hint">Обзор — правой рукой</div>
+    </div>
+    <div id="desktop-hint" hidden>W A S D · идти <span>Мышь · осмотреться</span><span>E · действие</span></div>
+
+    <section id="start" class="screen">
+      <div class="start-copy">
+        <div class="eyebrow">ГЛАВА ПЕРВАЯ</div>
+        <h1>Вокзал<span class="title-rule"></span></h1>
+        <div class="start-time">13<span>:</span>59<span>:</span>59</div>
+        <p>Часы замерли за секунду до отправления.<br>Все знают, куда им ехать.<br>Ты не помнишь даже своего имени.</p>
+        <button id="start-btn" class="primary" disabled>Собирается вокзал…</button>
+        <span class="start-meta">Исследование · диалоги · около 10 минут</span>
+      </div>
+      <div class="start-footer"><span>ПО МОТИВАМ ТВОЕЙ ПЕРВОЙ ГЛАВЫ</span><span>ANTWERPEN-CENTRAAL</span></div>
+    </section>
+
+    <section id="dialogue" class="dialogue" role="dialog" aria-modal="true" aria-labelledby="speaker" hidden>
+      <div class="dialogue-head"><div><span id="speaker-role"></span><h2 id="speaker"></h2></div><button id="dialogue-close" aria-label="Закончить разговор">×</button></div>
+      <div id="dialogue-text"></div>
+      <div id="choices"></div>
+    </section>
+
+    <section id="memory" class="screen memory-screen" role="dialog" aria-modal="true" aria-labelledby="memory-title" hidden>
+      <div class="memory-content"><div class="eyebrow">ВОСПОМИНАНИЕ <span id="memory-number"></span></div><h2 id="memory-title"></h2><p id="memory-text"></p><button id="memory-close" class="primary">Вернуться на вокзал</button></div>
+    </section>
+
+    <section id="journal" class="panel" role="dialog" aria-modal="true" aria-labelledby="journal-title" hidden>
+      <div class="panel-head"><div><div class="eyebrow">ЧТО Я УЗНАЛ</div><h2 id="journal-title">Записи</h2></div><button id="journal-close" aria-label="Закрыть записи">×</button></div>
+      <div id="journal-content"></div>
+    </section>
+
+    <section id="pause" class="screen pause-screen" role="dialog" aria-modal="true" aria-labelledby="pause-title" hidden>
+      <div class="pause-card"><div class="eyebrow">ВРЕМЯ ПОДОЖДЁТ</div><h2 id="pause-title">Вокзал</h2><button id="resume-btn" class="primary">Продолжить</button><label class="check"><input type="checkbox" id="sound-toggle" checked> Звуки вокзала</label><label>Чувствительность обзора<input id="sensitivity" type="range" min="0.4" max="2" step="0.1" value="1"></label><p id="control-help">WASD / стрелки — идти.<br>Мышь или перетягивание — обзор.<br>E — действие. J — записи. Esc — пауза.</p><button id="restart-btn" class="subtle">Начать главу заново</button><small>Прогресс сохраняется в этом браузере.</small></div>
+    </section>
+
+    <section id="name-screen" class="screen name-screen" role="dialog" aria-modal="true" aria-labelledby="name-title" hidden>
+      <form id="name-form"><div class="eyebrow">ТРИ ВОСПОМИНАНИЯ СЛОЖИЛИСЬ</div><h2 id="name-title">Я помню.</h2><p>Память возвращается не фотографией.<br>Сначала — чувство. Потом — голос.<br>Наконец — твоё имя.</p><label for="player-name">Как тебя зовут?</label><input id="player-name" name="name" type="text" maxlength="28" autocomplete="off" placeholder="Вспомнить своё имя" required><button class="primary" type="submit">Назвать себя</button></form>
+    </section>
+
+    <section id="ending" class="screen ending-screen" hidden>
+      <div><div class="eyebrow">КОНЕЦ ПЕРВОЙ ГЛАВЫ</div><h2>14:05</h2><p id="ending-text">Вокзал остался позади.<br>Впереди — только туман.</p><button id="ending-restart" class="primary">Вернуться к началу</button></div>
+    </section>
+    <section id="error" class="screen error-screen" hidden><div><h2>Не удалось открыть 3D-сцену</h2><p id="error-text">Попробуй открыть игру в Chrome или на компьютере с включённым аппаратным ускорением.</p><button class="primary" id="reload-btn">Загрузить ещё раз</button></div></section>
+  </main>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
