@@ -1,0 +1,56 @@
+name: Mirror The Station to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Mirror public ChatGPT Site
+        shell: bash
+        run: |
+          set -euxo pipefail
+          rm -rf public mirror
+          mkdir -p mirror public
+
+          wget \
+            --mirror \
+            --page-requisites \
+            --convert-links \
+            --adjust-extension \
+            --no-parent \
+            --span-hosts \
+            --domains=the-station-135959.seleothemaestro.chatgpt.site,chatgpt.site \
+            --directory-prefix=mirror \
+            https://the-station-135959.seleothemaestro.chatgpt.site/
+
+          SRC="mirror/the-station-135959.seleothemaestro.chatgpt.site"
+          test -d "$SRC"
+          cp -a "$SRC"/. public/
+          touch public/.nojekyll
+
+          if [ ! -f public/index.html ]; then
+            CANDIDATE=$(find public -maxdepth 2 -type f \( -name 'index.html' -o -name 'index.html.*' \) | head -n 1 || true)
+            if [ -n "$CANDIDATE" ]; then
+              cp "$CANDIDATE" public/index.html
+            fi
+          fi
+
+          test -f public/index.html
+
+      - name: Publish mirrored site to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          force_orphan: true
