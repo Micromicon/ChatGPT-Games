@@ -1,60 +1,66 @@
-name: Mirror The Station to GitHub Pages
+name: Publish The Station visual novel
 
 on:
   workflow_dispatch:
   push:
     branches: [main]
+    paths:
+      - 'novel/**'
+      - 'novel-files.json'
+      - '.github/workflows/mirror-the-station.yml'
 
 permissions:
   contents: write
 
+concurrency:
+  group: station-novel-publish
+  cancel-in-progress: false
+
 jobs:
-  mirror:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Download the complete game
+      - name: Prepare the complete visual novel
         shell: bash
         run: |
-          set -euxo pipefail
-          BASE="https://the-station-135959.seleothemaestro.chatgpt.site"
-          rm -rf public
-          mkdir -p public/vendor
-
-          wget -q -O public/index.html "$BASE/"
-          wget -q -O public/style.css "$BASE/style.css"
-          wget -q -O public/game.js "$BASE/game.js"
-          wget -q -O public/world.js "$BASE/world.js"
-          wget -q -O public/story.js "$BASE/story.js"
-          wget -q -O public/vendor/three.module.js "$BASE/vendor/three.module.js"
-
-          # The source HTML may contain a Cloudflare browser-check snippet.
-          # It is unnecessary on GitHub Pages and would point at a non-existent /cdn-cgi path.
+          set -euo pipefail
           python - <<'PY'
+          import hashlib
+          import json
+          import shutil
+          import subprocess
           from pathlib import Path
-          import re
-          p = Path('public/index.html')
-          s = p.read_text(encoding='utf-8')
-          s = re.sub(r'<script>.*?__CF\$cv\$params.*?</script>', '', s, flags=re.S)
-          s = re.sub(r'<script>.*?/cdn-cgi/challenge-platform.*?</script>', '', s, flags=re.S)
-          p.write_text(s, encoding='utf-8')
+
+          origin = 'https://the-station-135959.seleothemaestro.chatgpt.site'
+          target = Path('public/novel')
+          manifest = json.loads(Path('novel-files.json').read_text())
+          for name, expected in manifest.items():
+              destination = target / name
+              destination.parent.mkdir(parents=True, exist_ok=True)
+              source = Path('novel') / name
+              if source.is_file():
+                  shutil.copyfile(source, destination)
+              else:
+                  subprocess.run([
+                      'curl', '--fail', '--silent', '--show-error', '--location',
+                      '--retry', '3', '--max-time', '90',
+                      f'{origin}/{name}', '--output', str(destination)
+                  ], check=True)
+              actual = hashlib.sha256(destination.read_bytes()).hexdigest()
+              if actual != expected:
+                  raise SystemExit(f'Content mismatch: {name}; nothing published')
+          print(f'Verified all {len(manifest)} novel files.')
           PY
 
-          touch public/.nojekyll
-
-          test -s public/index.html
-          test -s public/style.css
-          test -s public/game.js
-          test -s public/world.js
-          test -s public/story.js
-          test -s public/vendor/three.module.js
-
-      - name: Publish game to gh-pages branch
+      - name: Add the novel beside the existing 3D game
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./public/novel
+          destination_dir: novel
           publish_branch: gh-pages
-          force_orphan: true
+          keep_files: true
+          commit_message: 'Publish visual novel at /novel/'

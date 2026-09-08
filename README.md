@@ -1,9 +1,16 @@
 # ChatGPT Games
 
-Static mirrors of games originally published with ChatGPT Sites.
+Две самостоятельные игры по истории «Вокзал — 13:59:59».
 
-## The Station — 13:59:59
+| Игра | Запустить |
+| --- | --- |
+| Вокзал — 3D-игра | [Играть](https://micromicon.github.io/ChatGPT-Games/) |
+| Вокзал — визуальная новелла | [Играть](https://micromicon.github.io/ChatGPT-Games/novel/) |
 
-Source site: https://the-station-135959.seleothemaestro.chatgpt.site/
+В новелле можно наводить мышь на людей и места на общем плане вокзала, подходить к персонажам, выбирать реплики и исследовать историю. Все иллюстрации и диалоги входят в игру; прогресс сохраняется в браузере.
 
-The GitHub Actions workflow in this repository attempts to mirror the public site into the `gh-pages` branch so the game can be served independently of `chatgpt.site`.
+3D-игра находится в корне ветки `gh-pages`. Новелла находится в отдельной папке `novel`; её публикация сохраняет прежнюю игру и её адрес. Играть можно без входа в ChatGPT.
+
+Исходники и изображения новеллы: [novel](https://github.com/Micromicon/ChatGPT-Games/tree/main/novel). Готовые файлы обеих игр: [gh-pages](https://github.com/Micromicon/ChatGPT-Games/tree/gh-pages).
+
+Происхождение изображений и ссылки на лицензии доступны внутри новеллы через «О новелле» и в файле `novel/photo-credits.js`.

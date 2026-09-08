@@ -1,0 +1,23 @@
+{
+  "assets/carriage.webp": "c636fbd77ee2f53f480cb4cd5cc33246960967448455374147c6033df3f6a2e1",
+  "assets/door.webp": "3452b8de7be75b14fa3598e4c11f3a0c13831d11551b82a51199e1f7db8644c9",
+  "assets/hall.webp": "c71ddfa8dd95a14d2d602c0bfadc8dfc23e7a76755a30624f484c7ec28d70bc6",
+  "assets/illustrated/carriage.webp": "bd7fe4c7942479c6ab6ff07b77f5623b0e154faefd6f7782f73dc7503b18e0e2",
+  "assets/illustrated/conductor.webp": "88eac8852f09c5a25a3090b656431c47d0f73608267fc30544a01e5832a29bdc",
+  "assets/illustrated/couple.webp": "1fa2c3fc1f954c5c5db27813456214c46324733f7181ced6f7173d5f8406db72",
+  "assets/illustrated/empty-overview.webp": "399cad416cbd95d5da90e7e384efe4ecc4a69bda9b270d5848e217615a08629e",
+  "assets/illustrated/father.webp": "41c197dc41b7bcc403f3c97f1cb8d3f885f81ded3cb6575c0177d6b64bfbc3d3",
+  "assets/illustrated/merchant.webp": "8964c19ff8f00f33b2435d729314f1b0dac9b93f109d3e03e60ceed376a5dea3",
+  "assets/illustrated/mother.webp": "0a7ffbd1bc088622dc20227cb9f9c89d6cfdabe5bd11ba8dfdbc8c017662d2c9",
+  "assets/illustrated/overview.webp": "10a3b1d83576bbb9ac68635ff2033823f4cbe608c004294cde535ef5c639c3ab",
+  "assets/illustrated/platform.webp": "9d141947f5e35546df894810c0aa9b5dd649226e4d59558ec7adefb0c7ebccb9",
+  "assets/passage.webp": "8af77eaa160328881d48bec373e8680416460d29369ed9c540df9744b3cc42eb",
+  "assets/platform.webp": "74a04148aece150677d4d6d52ac49d94dad2796433a190067bc72a69110ecffc",
+  "assets/stairs.webp": "7550e9e50272130226031b7cf97463b105574aef6b1d8ada3f9e134da0a7efd1",
+  "index.html": "f686c5f492cf20aeacc2672ff29ffbb88c1cb8d0ece9cadb9cb8cc1c8339d2d9",
+  "novel-data.js": "bce16df16a85c6f3d48d2f17b0fd9245f50108935dc14dd9941691c10bfd0d61",
+  "novel.js": "1edb2cb4d1e4d12ff97e36af3e0ac80f378c074cc7cab311158b6f569162a73b",
+  "photo-credits.js": "a60042f9e015744935b32237e876871d5676aa3f8d1f0b1e7004f417dbca622f",
+  "scene-art.js": "3a358bcecc44d9fe15a1c1c78aace890135692b3a32729b6903eb9b9e1c2f6d8",
+  "style.css": "8ed6729e8738196f2140ddf14ce9284c1e38d7863e27f1930ed74dac5fb8826d"
+}
