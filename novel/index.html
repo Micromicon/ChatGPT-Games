@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#14191b">
+  <meta name="description" content="Вокзал — визуальная новелла о памяти и прощании. Исследуй залы, разговаривай с пассажирами и дождись последнего поезда.">
+  <title>Вокзал · визуальная новелла</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23132323'/%3E%3Ccircle cx='32' cy='32' r='23' fill='none' stroke='%23d8b778' stroke-width='3'/%3E%3Cpath d='M32 14v18l-13 8' fill='none' stroke='%23d8b778' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="./assets/illustrated/overview.webp">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="novel" aria-label="Вокзал — визуальная новелла">
+    <div id="scene-viewport"><div id="painting-stage">
+      <div id="scenery" aria-hidden="true"><div class="photograph visible" id="photo-a"></div><div class="photograph" id="photo-b"></div><div class="vignette"></div><div id="fog"></div></div>
+      <div id="hotspots" aria-label="Люди и места на картине вокзала"></div>
+      <div id="hover-caption" role="status" aria-live="polite"><span id="hover-name"></span><small id="hover-action">Подойти ближе</small></div>
+      <div id="scene-loader" hidden><span>Подходим ближе…</span></div>
+    </div></div>
+    <header id="header" hidden>
+      <button id="menu-button" class="wordmark" aria-label="Открыть меню"><small>ГЛАВА ПЕРВАЯ</small><span>Вокзал</span></button>
+      <div class="station-clock"><time id="clock">13:59:59</time><span id="clock-caption">ВРЕМЯ ОСТАНОВИЛОСЬ</span></div>
+      <nav class="utilities" aria-label="Меню новеллы"><button id="notes-button">Записи<span id="memory-mark" aria-hidden="true"></span></button><button id="sound-button" aria-pressed="false" aria-label="Включить звуки вокзала">Звук выкл.</button><button id="areas-button" aria-label="Подсветить места, которые можно осмотреть" aria-pressed="false">Осмотреться</button><button id="options-button" aria-label="Открыть меню">Меню</button></nav>
+    </header>
+
+    <section id="exploration" aria-label="Исследование вокзала" hidden>
+      <div class="location"><span id="scene-subtitle" class="eyebrow"></span><h1 id="scene-title" tabindex="-1"></h1></div>
+      <footer class="exploration-footer"><div><p id="scene-description"></p><small id="explore-instruction">Наведи мышь на человека или место. Нажми, чтобы подойти.</small></div></footer>
+    </section>
+    <button id="back-button" class="scene-back" hidden>← Общий план</button>
+    <section id="dialogue" class="dialogue" aria-label="Диалог" hidden>
+      <div class="dialogue-context"><span id="dialogue-location"></span><span id="memory-label" hidden>ВОСПОМИНАНИЕ</span><button id="history-button" aria-label="Перечитать диалоги">Перечитать</button></div>
+      <div class="dialogue-sheet">
+        <div class="speaker-line"><span id="speaker"></span><span id="beat-mark" aria-hidden="true"></span></div>
+        <p id="line" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+        <div id="choices" class="choices" aria-label="Выбери реплику" hidden></div>
+        <div class="reading-footer"><span id="read-hint">Клик по тексту или пробел</span><button id="next-button" class="next">Дальше <span aria-hidden="true">→</span></button></div>
+      </div>
+    </section>
+
+    <section id="start" class="cover" aria-labelledby="cover-title">
+      <div class="cover-copy"><p class="eyebrow">ГЛАВА ПЕРВАЯ · ИСТОРИЯ В КАРТИНАХ</p><h1 id="cover-title">Вокзал</h1><p class="cover-time">13:59:59</p><p class="cover-description">Часы остановились за секунду до двух.<br>Кто-то ждёт поезд. Кто-то — ещё одно слово.<br>Ты не помнишь даже своего имени.</p><button id="begin-button" class="primary" disabled>Открывается вокзал… <span aria-hidden="true">→</span></button><button id="new-button" class="cover-new" hidden>Начать с первой строки</button><small id="save-notice">История сохраняется в этом браузере.</small></div>
+      <footer class="cover-footer"><span>ПО МОТИВАМ ТВОЕЙ ПЕРВОЙ ГЛАВЫ</span><button id="cover-credits">ANTWERPEN-CENTRAAL · О НОВЕЛЛЕ</button></footer>
+    </section>
+
+    <section id="ending" class="cover ending" aria-labelledby="ending-title" hidden><div class="cover-copy"><p class="eyebrow">КОНЕЦ ПЕРВОЙ ГЛАВЫ</p><h1 id="ending-title" tabindex="-1">Поезд идёт<br><em>дальше.</em></h1><p class="ending-lines">— Вы ещё здесь?<br>— Да.</p><p class="ending-small">Вокзал остался в тумане.<br>Рядом с тобой кто-то устроился у окна.</p><button id="ending-history" class="primary">Перечитать разговоры <span aria-hidden="true">→</span></button><button id="ending-restart" class="cover-new">Вернуться к началу</button></div><footer class="cover-footer"><span>14:05 · ПОСЛЕДНИЙ ПОЕЗД</span><button id="ending-credits">О НОВЕЛЛЕ</button></footer></section>
+  </main>
+
+  <dialog id="panel" aria-labelledby="panel-title"><div class="panel-header"><div><span class="eyebrow" id="panel-eyebrow">ВРЕМЯ ПОДОЖДЁТ</span><h2 id="panel-title">Записи</h2></div><button id="close-panel" class="close" aria-label="Закрыть окно">×</button></div><div id="panel-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="fallback">Для новеллы нужен JavaScript. Включи его в настройках браузера и обнови страницу.</div></noscript>
+  <script type="module" src="./novel.js"></script>
+</body>
+</html>
