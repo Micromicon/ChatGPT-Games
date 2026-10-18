@@ -1,8 +1,8 @@
 {
   "date": "2026-10-18",
-  "swift": "6.0.3",
-  "swiftCrypto": "3.12.3",
-  "platform": "Linux x86_64",
+  "swift": "6.0.3 (Linux)",
+  "swiftCrypto": "3.12.3 on Linux; Apple CryptoKit on macOS/iOS",
+  "platform": "Linux core, macOS build, iOS Simulator",
   "coreTests": {
     "executed": 9,
     "failures": 0,
@@ -10,12 +10,71 @@
   },
   "androidToSwift": "passed",
   "swiftToAndroid": "passed",
-  "firebaseRestClient": "compiled",
-  "messengerStore": "typechecked using platform shims",
-  "xcodeBuild": "not run",
-  "simulatorTests": "not run",
+  "firebaseRestClient": "compiled in native iOS application; service configuration matches Android APK",
+  "messengerStore": "compiled in native app; initialization exercised in Simulator snapshot test",
+  "xcodeBuild": "Release archive for generic iOS arm64 passed",
+  "simulatorTests": {
+    "status": "passed",
+    "executed": 12,
+    "failures": 0,
+    "coreTests": 9,
+    "nativePlatformTests": 3,
+    "iOS": "18.5",
+    "device": "iPhone 16",
+    "signing": "local ad hoc, Simulator only",
+    "runID": 39141675607
+  },
   "signedIPA": "not created",
-  "cloudWorkflow": "prepared, not published or run",
+  "cloudWorkflow": {
+    "repository": "Micromicon/ChatGPT-Games",
+    "branch": "codex/microchat-ios",
+    "buildCommit": "4989561201b5c74256e42b1148e8d3d65cde39bc",
+    "runID": 39141675607,
+    "simulatorCheckCommit": "4989561201b5c74256e42b1148e8d3d65cde39bc",
+    "simulatorCheckRunID": 39141675607
+  },
   "androidAPKVersion": "0.4",
-  "androidAPKSHA256": "f6d9d457f7f793ce1d9dbb3c51777d3a1cfa14082325bd3113321dce2864a1bb"
+  "androidAPKSHA256": "f6d9d457f7f793ce1d9dbb3c51777d3a1cfa14082325bd3113321dce2864a1bb",
+  "macCoreTests": {
+    "executed": 9,
+    "failures": 0,
+    "runner": "swift test with Apple CryptoKit",
+    "xcode": "16.4",
+    "sdk": "iPhoneOS18.5.sdk"
+  },
+  "unsignedIPA": {
+    "created": true,
+    "installableWithoutSigning": false,
+    "sha256": "bd2c6c57b6e8e835cfa35fd0310f627fd5238d52ac13b3a55281f939332b607b",
+    "sizeBytes": 283383,
+    "minimumOS": "17.0",
+    "sourceCommit": "4989561201b5c74256e42b1148e8d3d65cde39bc",
+    "workflowRunID": 39141675607,
+    "librarySaved": true
+  },
+  "repositoryPreservation": {
+    "originalFilesVerified": 24,
+    "originalFilesUnchanged": true,
+    "mainUnchanged": true,
+    "mainCommit": "b66500ab98fa2646f4f8629f0520d1c6ca2d8d75"
+  },
+  "bundledAndroidIOSServiceConfigsIdentical": true,
+  "physicalAndroidToIPhoneMessaging": "not tested",
+  "nativeKeychainAndEncryptedFile": "round trip, tamper rejection, and missing-key failure passed in Simulator",
+  "nativeHomeReview": {
+    "viewports": [
+      [
+        393,
+        852
+      ],
+      [
+        320,
+        693
+      ]
+    ],
+    "reviewed": true,
+    "labeledMainButtonsVisible": true,
+    "testContactsOnly": true,
+    "workflowRunID": 39141675607
+  }
 }
