@@ -17,11 +17,11 @@ final class MessengerStore: ObservableObject {
     private var polling: Task<Void, Never>?
     private var foreground = false
 
-    init() {
+    init(vaultFactory: () throws -> DeviceVault = { try DeviceVault() }) {
         // This placeholder is never persisted or connected if loading the vault fails.
         state = VaultState(identity: Identity())
         do {
-            let vault = try DeviceVault()
+            let vault = try vaultFactory()
             let loaded = try vault.load()
             guard let url = Bundle.main.url(forResource: "service-config", withExtension: "json") else {
                 throw MicroChatError.invalidData

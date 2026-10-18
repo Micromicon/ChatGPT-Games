@@ -33,30 +33,6 @@ jobs:
           xcodebuild -version
           swift test
 
-      - name: Select an available iPhone Simulator
-        id: simulator
-        run: |
-          python3 - <<'PY' >> "$GITHUB_OUTPUT"
-          import json, subprocess
-          devices = json.loads(subprocess.check_output(['xcrun', 'simctl', 'list', 'devices', 'available', '-j']))['devices']
-          for runtime, phones in sorted(devices.items(), reverse=True):
-              if '.iOS-' not in runtime:
-                  continue
-              for phone in phones:
-                  if phone.get('isAvailable') and phone['name'].startswith('iPhone'):
-                      print('id=' + phone['udid'])
-                      raise SystemExit(0)
-          raise SystemExit('No iPhone Simulator is available on this runner')
-          PY
-
-      - name: Build and run tests inside iOS Simulator
-        env:
-          MICROCHAT_IOS_DESTINATION: platform=iOS Simulator,id=${{ steps.simulator.outputs.id }}
-        run: |
-          xcodebuild -project MicroChat.xcodeproj -scheme MicroChat -configuration Debug \
-            -destination "$MICROCHAT_IOS_DESTINATION" -derivedDataPath build/DerivedData \
-            -resultBundlePath build/SimulatorTests.xcresult CODE_SIGNING_ALLOWED=NO test
-
       - name: Archive arm64 iPhone application
         run: |
           xcodebuild -project MicroChat.xcodeproj -scheme MicroChat -configuration Release \
@@ -86,3 +62,46 @@ jobs:
             microchat-ios/build/export/INSTALL-STATUS.txt
           if-no-files-found: error
           retention-days: 1
+
+      - name: Select an available iPhone Simulator
+        id: simulator
+        timeout-minutes: 3
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, subprocess
+          devices = json.loads(subprocess.check_output(['xcrun', 'simctl', 'list', 'devices', 'available', '-j']))['devices']
+          for runtime, phones in sorted(devices.items(), reverse=True):
+              if '.iOS-' not in runtime:
+                  continue
+              for phone in phones:
+                  if phone.get('isAvailable') and phone['name'].startswith('iPhone'):
+                      print('id=' + phone['udid'])
+                      raise SystemExit(0)
+          raise SystemExit('No iPhone Simulator is available on this runner')
+          PY
+
+      - name: Build and run tests inside iOS Simulator
+        timeout-minutes: 12
+        env:
+          MICROCHAT_IOS_DESTINATION: platform=iOS Simulator,id=${{ steps.simulator.outputs.id }}
+        run: |
+          xcodebuild -project MicroChat.xcodeproj -scheme MicroChat -configuration Debug \
+            -destination "$MICROCHAT_IOS_DESTINATION" -derivedDataPath build/DerivedData \
+            -resultBundlePath build/SimulatorTests.xcresult CODE_SIGNING_ALLOWED=NO test
+
+      - name: Export native interface snapshots
+        if: always()
+        run: |
+          if [ -d build/SimulatorTests.xcresult ]; then
+            xcrun xcresulttool export attachments --path build/SimulatorTests.xcresult --output-path build/QA
+          fi
+
+      - name: Save native interface review
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: MicroChat-iOS-native-QA
+          path: microchat-ios/build/QA
+          if-no-files-found: ignore
+          retention-days: 1
+

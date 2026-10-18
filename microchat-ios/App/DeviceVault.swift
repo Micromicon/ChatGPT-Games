@@ -8,17 +8,21 @@ final class DeviceVault {
     private let key: SymmetricKey
     private let aad = Data("MicroChat-iOS-v1".utf8)
 
-    init() throws {
+    init(directory: URL? = nil, keychainService: String = "com.microchat.app.vault.v1") throws {
         let manager = FileManager.default
-        let root = try manager.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            .appendingPathComponent("MicroChat", isDirectory: true)
+        let root: URL
+        if let directory { root = directory }
+        else {
+            root = try manager.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                .appendingPathComponent("MicroChat", isDirectory: true)
+        }
         try manager.createDirectory(at: root, withIntermediateDirectories: true,
                                     attributes: [.protectionKey: FileProtectionType.complete])
         var values = URLResourceValues(); values.isExcludedFromBackup = true
-        var directory = root; try directory.setResourceValues(values)
+        var protectedDirectory = root; try protectedDirectory.setResourceValues(values)
         url = root.appendingPathComponent("vault-v1.aesgcm")
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                  kSecAttrService as String: "com.microchat.app.vault.v1",
+                                  kSecAttrService as String: keychainService,
                                   kSecAttrAccount as String: "device-master",
                                   kSecAttrSynchronizable as String: false]
         var readQuery = query
