@@ -68,16 +68,30 @@ jobs:
         timeout-minutes: 3
         run: |
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
-          import json, subprocess
+          import json, re, subprocess, sys
+          def version(text):
+              parts = tuple(int(n) for n in re.findall(r'\d+', text))
+              return (parts + (0, 0, 0))[:3]
+          sdk_text = subprocess.check_output(['xcrun', '--sdk', 'iphonesimulator', '--show-sdk-version'], text=True).strip()
+          sdk_version = version(sdk_text)
           devices = json.loads(subprocess.check_output(['xcrun', 'simctl', 'list', 'devices', 'available', '-j']))['devices']
-          for runtime, phones in sorted(devices.items(), reverse=True):
-              if '.iOS-' not in runtime:
+          runtimes = []
+          for runtime, phones in devices.items():
+              match = re.search(r'\.iOS-([0-9-]+)$', runtime)
+              if not match or version(match.group(1)) > sdk_version:
                   continue
+              runtimes.append((version(match.group(1)), runtime, phones))
+          for _, runtime, phones in sorted(runtimes, reverse=True):
+              phones = sorted(phones, key=lambda phone: (phone['name'] != 'iPhone 16', phone['name']))
               for phone in phones:
                   if phone.get('isAvailable') and phone['name'].startswith('iPhone'):
+                      print('Selected ' + phone['name'] + ' / ' + runtime + ' for SDK ' + sdk_text, file=sys.stderr)
+                      if phone.get('state') != 'Booted':
+                          subprocess.run(['xcrun', 'simctl', 'boot', phone['udid']], check=True, stdout=sys.stderr, timeout=45)
+                      subprocess.run(['xcrun', 'simctl', 'bootstatus', phone['udid']], check=True, stdout=sys.stderr, timeout=120)
                       print('id=' + phone['udid'])
                       raise SystemExit(0)
-          raise SystemExit('No iPhone Simulator is available on this runner')
+          raise SystemExit('No iPhone Simulator compatible with SDK ' + sdk_text + ' is available')
           PY
 
       - name: Build and run tests inside iOS Simulator
