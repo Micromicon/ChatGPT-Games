@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	"archiveVersion" = 1;
+	"classes" = {
+	};
+	"objectVersion" = 56;
+	"objects" = {
+		"3749E4E715B9D020722E720A" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "App/DeviceVault.swift";
+			"sourceTree" = "<group>";
+		};
+		"86C2F98AD74EE4D0FD072CED" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3749E4E715B9D020722E720A";
+		};
+		"212FDD339704191C51CE62D4" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "App/MessengerStore.swift";
+			"sourceTree" = "<group>";
+		};
+		"971B541578C61B0BD9C9F735" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "212FDD339704191C51CE62D4";
+		};
+		"B806A50CAB3AA1B620886C68" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "App/MicroChatApp.swift";
+			"sourceTree" = "<group>";
+		};
+		"7168AFB1E81DB091CA28F18B" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "B806A50CAB3AA1B620886C68";
+		};
+		"97355CB5D3636E90F906D050" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "App/VelvetViews.swift";
+			"sourceTree" = "<group>";
+		};
+		"744D34C95E98CF0ED8C9A628" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "97355CB5D3636E90F906D050";
+		};
+		"75ED75A3D4083C9786AEF4C0" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Core/FirebaseClient.swift";
+			"sourceTree" = "<group>";
+		};
+		"A9F17DD8E82B83ABAD957D2E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "75ED75A3D4083C9786AEF4C0";
+		};
+		"82DD33D98298B29B99879B95" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Core/Models.swift";
+			"sourceTree" = "<group>";
+		};
+		"3B875CF8CEBD398947B601CF" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "82DD33D98298B29B99879B95";
+		};
+		"7D7DCAE65032FC11DE728E9A" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Core/TinkKeyset.swift";
+			"sourceTree" = "<group>";
+		};
+		"DB1BEA8B016045A57013BE3D" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "7D7DCAE65032FC11DE728E9A";
+		};
+		"22AFDA01BD04BD6F61F421AC" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Core/WireCrypto.swift";
+			"sourceTree" = "<group>";
+		};
+		"2245027B7D117B6FD6E95636" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "22AFDA01BD04BD6F61F421AC";
+		};
+		"3A76CDE736DB101C5B03F512" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Tests/WireCryptoTests.swift";
+			"sourceTree" = "<group>";
+		};
+		"E19AB971ACBEE76D67D0306E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3A76CDE736DB101C5B03F512";
+		};
+		"CE1A6325A9454BC4CDC2B734" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "folder.assetcatalog";
+			"path" = "App/Assets.xcassets";
+			"sourceTree" = "<group>";
+		};
+		"62D08223D099283DC6B16401" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "CE1A6325A9454BC4CDC2B734";
+		};
+		"20746C9EC47138381650C8DB" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.json";
+			"path" = "App/service-config.json";
+			"sourceTree" = "<group>";
+		};
+		"B01BF64853234643E16A2F48" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "20746C9EC47138381650C8DB";
+		};
+		"B54B90DE18275E3CC2B307A0" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.xml";
+			"path" = "App/PrivacyInfo.xcprivacy";
+			"sourceTree" = "<group>";
+		};
+		"7247780AA04801E1C21C2895" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "B54B90DE18275E3CC2B307A0";
+		};
+		"5FB3232C1318BBB9EBD32256" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "folder";
+			"path" = "Tests/Fixtures";
+			"sourceTree" = "<group>";
+		};
+		"88536C871FEE4B3221DA5477" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "5FB3232C1318BBB9EBD32256";
+		};
+		"A84A93D6E32920B12573FEBD" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.xml";
+			"path" = "App/Info.plist";
+			"sourceTree" = "<group>";
+		};
+		"A0F063194D61A236F2088D65" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.application";
+			"includeInIndex" = 0;
+			"path" = "MicroChat.app";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"A6885334017B84934B0E3C45" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.cfbundle";
+			"includeInIndex" = 0;
+			"path" = "MicroChatTests.xctest";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"E2B1E0C48C5FD715FE393B9B" = {
+			"isa" = "PBXGroup";
+			"children" = ("A0F063194D61A236F2088D65", "A6885334017B84934B0E3C45",);
+			"name" = "Products";
+			"sourceTree" = "<group>";
+		};
+		"595D264FED161E0D14E57FF5" = {
+			"isa" = "PBXGroup";
+			"children" = ("3749E4E715B9D020722E720A", "212FDD339704191C51CE62D4", "B806A50CAB3AA1B620886C68", "97355CB5D3636E90F906D050", "75ED75A3D4083C9786AEF4C0", "82DD33D98298B29B99879B95", "7D7DCAE65032FC11DE728E9A", "22AFDA01BD04BD6F61F421AC", "3A76CDE736DB101C5B03F512", "CE1A6325A9454BC4CDC2B734", "20746C9EC47138381650C8DB", "B54B90DE18275E3CC2B307A0", "5FB3232C1318BBB9EBD32256", "A84A93D6E32920B12573FEBD", "E2B1E0C48C5FD715FE393B9B",);
+			"sourceTree" = "<group>";
+		};
+		"C264501EB0D364E7E8D28BE6" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"SWIFT_VERSION" = "5.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+				"SDKROOT" = "iphoneos";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"SWIFT_STRICT_CONCURRENCY" = "targeted";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"DEVELOPMENT_TEAM" = "";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"ENABLE_TESTABILITY" = "YES";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+			};
+		};
+		"031983612D8A9E6131069407" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"SWIFT_VERSION" = "5.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
+				"SDKROOT" = "iphoneos";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"SWIFT_STRICT_CONCURRENCY" = "targeted";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"DEVELOPMENT_TEAM" = "";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+				"VALIDATE_PRODUCT" = "YES";
+			};
+		};
+		"8058D0B567AAE4D9ED20D600" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = ("C264501EB0D364E7E8D28BE6", "031983612D8A9E6131069407",);
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"3FC2D5BA3287271D229D5C69" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.microchat.app";
+				"PRODUCT_NAME" = "MicroChat";
+				"INFOPLIST_FILE" = "App/Info.plist";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"CURRENT_PROJECT_VERSION" = "5";
+				"MARKETING_VERSION" = "0.5";
+				"TARGETED_DEVICE_FAMILY" = "1";
+				"SUPPORTS_MACCATALYST" = "NO";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
+				"ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME" = "AccentColor";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks",);
+			};
+		};
+		"8DAFCE50D85BF6087327DF13" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.microchat.app";
+				"PRODUCT_NAME" = "MicroChat";
+				"INFOPLIST_FILE" = "App/Info.plist";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"CURRENT_PROJECT_VERSION" = "5";
+				"MARKETING_VERSION" = "0.5";
+				"TARGETED_DEVICE_FAMILY" = "1";
+				"SUPPORTS_MACCATALYST" = "NO";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
+				"ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME" = "AccentColor";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks",);
+			};
+		};
+		"A5487DE1D17018F6EB683379" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = ("3FC2D5BA3287271D229D5C69", "8DAFCE50D85BF6087327DF13",);
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"EA1A9D9D64B469047C614232" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.microchat.app.tests";
+				"PRODUCT_NAME" = "MicroChatTests";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"TARGETED_DEVICE_FAMILY" = "1";
+				"TEST_HOST" = "$(BUILT_PRODUCTS_DIR)/MicroChat.app/MicroChat";
+				"BUNDLE_LOADER" = "$(TEST_HOST)";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks",);
+			};
+		};
+		"AB592E2B443BFC1AA23775F7" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.microchat.app.tests";
+				"PRODUCT_NAME" = "MicroChatTests";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"TARGETED_DEVICE_FAMILY" = "1";
+				"TEST_HOST" = "$(BUILT_PRODUCTS_DIR)/MicroChat.app/MicroChat";
+				"BUNDLE_LOADER" = "$(TEST_HOST)";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks",);
+			};
+		};
+		"489F51AAF73ABC0AE8971D6C" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = ("EA1A9D9D64B469047C614232", "AB592E2B443BFC1AA23775F7",);
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"798E9783D317E0849C4C5512" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ("86C2F98AD74EE4D0FD072CED", "971B541578C61B0BD9C9F735", "7168AFB1E81DB091CA28F18B", "744D34C95E98CF0ED8C9A628", "A9F17DD8E82B83ABAD957D2E", "3B875CF8CEBD398947B601CF", "DB1BEA8B016045A57013BE3D", "2245027B7D117B6FD6E95636",);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"9790432ED2E717ABA6EECC12" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"134DC4F0123A38DCC26FF9FC" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ("62D08223D099283DC6B16401", "B01BF64853234643E16A2F48", "7247780AA04801E1C21C2895",);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"84619275646FAEA4B82AFA8B" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ("E19AB971ACBEE76D67D0306E",);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"70DF5CEAD3F5E611FD5F82FE" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"7C3C8C36E4930C2987189E53" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ("88536C871FEE4B3221DA5477",);
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"2BD4227227E9B942B06399F4" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "E8E2C17FE57845265F3DF319";
+			"proxyType" = 1;
+			"remoteGlobalIDString" = "2B1259E7303BE56A553A0CD7";
+			"remoteInfo" = "MicroChat";
+		};
+		"9BA8946B52A2C66484C9ACCE" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "2B1259E7303BE56A553A0CD7";
+			"targetProxy" = "2BD4227227E9B942B06399F4";
+		};
+		"2B1259E7303BE56A553A0CD7" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "MicroChat";
+			"buildConfigurationList" = "A5487DE1D17018F6EB683379";
+			"buildPhases" = ("798E9783D317E0849C4C5512", "9790432ED2E717ABA6EECC12", "134DC4F0123A38DCC26FF9FC",);
+			"buildRules" = ();
+			"dependencies" = ();
+			"productName" = "MicroChat";
+			"productReference" = "A0F063194D61A236F2088D65";
+			"productType" = "com.apple.product-type.application";
+		};
+		"CD7B9662744F9ADC0061FD51" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "MicroChatTests";
+			"buildConfigurationList" = "489F51AAF73ABC0AE8971D6C";
+			"buildPhases" = ("84619275646FAEA4B82AFA8B", "70DF5CEAD3F5E611FD5F82FE", "7C3C8C36E4930C2987189E53",);
+			"buildRules" = ();
+			"dependencies" = ("9BA8946B52A2C66484C9ACCE",);
+			"productName" = "MicroChatTests";
+			"productReference" = "A6885334017B84934B0E3C45";
+			"productType" = "com.apple.product-type.bundle.unit-test";
+		};
+		"E8E2C17FE57845265F3DF319" = {
+			"isa" = "PBXProject";
+			"attributes" = {
+				"BuildIndependentTargetsInParallel" = "YES";
+				"LastUpgradeCheck" = "1600";
+				"TargetAttributes" = {
+					"2B1259E7303BE56A553A0CD7" = {
+						"CreatedOnToolsVersion" = "16.0";
+					};
+					"CD7B9662744F9ADC0061FD51" = {
+						"CreatedOnToolsVersion" = "16.0";
+						"TestTargetID" = "2B1259E7303BE56A553A0CD7";
+					};
+				};
+			};
+			"buildConfigurationList" = "8058D0B567AAE4D9ED20D600";
+			"compatibilityVersion" = "Xcode 14.0";
+			"developmentRegion" = "ru";
+			"hasScannedForEncodings" = 0;
+			"knownRegions" = ("ru", "en", "Base",);
+			"mainGroup" = "595D264FED161E0D14E57FF5";
+			"productRefGroup" = "E2B1E0C48C5FD715FE393B9B";
+			"projectDirPath" = "";
+			"projectRoot" = "";
+			"targets" = ("2B1259E7303BE56A553A0CD7", "CD7B9662744F9ADC0061FD51",);
+		};
+	};
+	"rootObject" = "E8E2C17FE57845265F3DF319";
+}

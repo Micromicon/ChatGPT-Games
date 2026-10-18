@@ -1,0 +1,34 @@
+{
+  "androidSecret": {
+    "sign": "CJGD0-gOEpEBCoQBCjh0eXBlLmdvb2dsZWFwaXMuY29tL2dvb2dsZS5jcnlwdG8udGluay5FZDI1NTE5UHJpdmF0ZUtleRJGEiAU8STxX2sL_aeb4za7pREXFcaIWGK6dXodVQ1CtFmJ1BoiEiDkJw-Kgm21gmKhM5SHvSsBcSgPVZZB9r0qPz5-Rn3FlxgCEAEYkYPT6A4gAQ",
+    "enc": "COiL9-cDEpYBCokBCjV0eXBlLmdvb2dsZWFwaXMuY29tL2dvb2dsZS5jcnlwdG8udGluay5IcGtlUHJpdmF0ZUtleRJOEioSBggBEAEYAhogo0ZZFsRTYOgGCahDoxi_k_ArFub3Qg7tpzkYv_ZUeQsaINeZYO7TpoB_TkLzjkGE2IXsvxjQV2kHGddZkonb9emTGAIQARjoi_fnAyAB"
+  },
+  "androidEnvelope": {
+    "ciphertext": "AYlV4jrOyJKS__buGGurgKoUb9-cwYZmdBZ7Kvnx56AckoJUP_2DPYAPmOzBH1Qn3zgGLopc0vHt4z60wR4Up6x2JQLwgLl95DdKsV0FQbtwVFPd7bBZwPdIBxUaSFRIo4zTxnzj3vphCf4hffLoWPf2HWvsvW57L8OlUiixdlrjZeOwW7_r1gJUIaayEfvId1O6jYcxIWovx9-HjQ",
+    "sender": "AndroidFixture123456",
+    "signature": "Ae0UwZHjeH9XehH9LFbEyLJHHHjfuZAxaikACiluayJQ7RMHXq90RxVfoqIWmUf8WeE54_a8Inzjyp3wAZ0nAT9hnk8G",
+    "v": 1,
+    "created": 1792324800000,
+    "recipient": "IPhoneFixture1234567",
+    "id": "e273b8f7-4e12-40fe-a23b-c2657e3ca2e5"
+  },
+  "v": 1,
+  "androidUID": "AndroidFixture123456",
+  "warning": "PUBLIC TEST KEYS; NEVER USE FOR REAL ACCOUNTS",
+  "plaintext": "Android → iPhone: Привет! 🔒\nПеренос строки и <script>как текст</script>",
+  "iosBundle": {
+    "sign": "CODI4rkCEmsKXwo3dHlwZS5nb29nbGVhcGlzLmNvbS9nb29nbGUuY3J5cHRvLnRpbmsuRWQyNTUxOVB1YmxpY0tleRIiEiBT_OVwQPeV70vtT50vd2oz_27sNub_D94gKYnzOcLFSRgDEAEY4MjiuQIgAQ",
+    "enc": "CLrE18oIEnAKZAo0dHlwZS5nb29nbGVhcGlzLmNvbS9nb29nbGUuY3J5cHRvLnRpbmsuSHBrZVB1YmxpY0tleRIqEgYIARABGAIaIHa8oi2ilgZjnRcEUfdWgHbDEpm-CO3owiCdHqPTG7ghGAMQARi6xNfKCCAB"
+  },
+  "iosUID": "IPhoneFixture1234567",
+  "iosIdentity": {
+    "signingPrivate": "CjstRxYO1bMWwSp/Kj+/gOoyjMWiVIjMebj24pAKts0=",
+    "signingID": 658023520,
+    "encryptionPrivate": "9yYCyfiZlmYOBN82hdiuio6M8KZjPw33+2pdTzHNLbk=",
+    "encryptionID": 2304107066
+  },
+  "androidBundle": {
+    "sign": "CJGD0-gOEmsKXwo3dHlwZS5nb29nbGVhcGlzLmNvbS9nb29nbGUuY3J5cHRvLnRpbmsuRWQyNTUxOVB1YmxpY0tleRIiEiDkJw-Kgm21gmKhM5SHvSsBcSgPVZZB9r0qPz5-Rn3FlxgDEAEYkYPT6A4gAQ",
+    "enc": "COiL9-cDEnAKZAo0dHlwZS5nb29nbGVhcGlzLmNvbS9nb29nbGUuY3J5cHRvLnRpbmsuSHBrZVB1YmxpY0tleRIqEgYIARABGAIaIKNGWRbEU2DoBgmoQ6MYv5PwKxbm90IO7ac5GL_2VHkLGAMQARjoi_fnAyAB"
+  }
+}

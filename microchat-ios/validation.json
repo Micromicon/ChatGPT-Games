@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-18",
+  "swift": "6.0.3",
+  "swiftCrypto": "3.12.3",
+  "platform": "Linux x86_64",
+  "coreTests": {
+    "executed": 9,
+    "failures": 0,
+    "runner": "compiled XCTest executable"
+  },
+  "androidToSwift": "passed",
+  "swiftToAndroid": "passed",
+  "firebaseRestClient": "compiled",
+  "messengerStore": "typechecked using platform shims",
+  "xcodeBuild": "not run",
+  "simulatorTests": "not run",
+  "signedIPA": "not created",
+  "cloudWorkflow": "prepared, not published or run",
+  "androidAPKVersion": "0.4",
+  "androidAPKSHA256": "f6d9d457f7f793ce1d9dbb3c51777d3a1cfa14082325bd3113321dce2864a1bb"
+}
