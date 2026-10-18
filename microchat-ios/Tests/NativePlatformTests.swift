@@ -13,7 +13,21 @@ final class NativePlatformTests: XCTestCase {
         var file: URL { directory.appendingPathComponent("vault-v1.aesgcm") }
         var query: [String: Any] { [kSecClass as String: kSecClassGenericPassword,
                                     kSecAttrService as String: service, kSecAttrAccount as String: "device-master"] }
-        func vault() throws -> DeviceVault { try DeviceVault(directory: directory, keychainService: service) }
+        func vault() throws -> DeviceVault {
+            do { return try DeviceVault(directory: directory, keychainService: service) }
+            catch {
+                // Test-only diagnostics distinguish missing signing entitlements from vault failures.
+                let readStatus = SecItemCopyMatching(query as CFDictionary, nil)
+                var probe = query; probe[kSecAttrService as String] = service + ".diagnostic"
+                var insertion = probe
+                insertion[kSecValueData as String] = Data(repeating: 0, count: 32)
+                insertion[kSecAttrAccessible as String] = kSecAttrAccessibleWhenUnlockedThisDeviceOnly
+                let insertStatus = SecItemAdd(insertion as CFDictionary, nil)
+                if insertStatus == errSecSuccess { SecItemDelete(probe as CFDictionary) }
+                print("Test vault error: \(error); Keychain read=\(readStatus), insert=\(insertStatus)")
+                throw error
+            }
+        }
         deinit {
             SecItemDelete(query as CFDictionary)
             try? FileManager.default.removeItem(at: directory)

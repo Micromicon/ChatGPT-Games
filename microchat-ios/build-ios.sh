@@ -20,7 +20,7 @@ case "$mode" in
     : "${MICROCHAT_IOS_DESTINATION:?Задай MICROCHAT_IOS_DESTINATION, например platform=iOS Simulator,id=UUID из xcrun simctl list devices available}"
     xcodebuild -project MicroChat.xcodeproj -scheme MicroChat -configuration Debug \
       -destination "$MICROCHAT_IOS_DESTINATION" -derivedDataPath "$build_dir/DerivedData" \
-      CODE_SIGNING_ALLOWED=NO test
+      CODE_SIGNING_ALLOWED=YES CODE_SIGN_IDENTITY=- test
     ;;
   archive)
     xcodebuild -project MicroChat.xcodeproj -scheme MicroChat -configuration Release \
