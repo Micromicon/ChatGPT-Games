@@ -163,14 +163,19 @@ struct HomeView: View {
             .navigationTitle("MicroChat").navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Настройки", systemImage: "gearshape") { sheet = .settings }.labelStyle(.titleAndIcon).font(.footnote)
+                    Button { sheet = .settings } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "gearshape")
+                            Text("Настройки")
+                        }
+                    }.font(.footnote).foregroundStyle(Velvet.coral)
                 }
             }
             .safeAreaInset(edge: .bottom) {
                 HStack(spacing: 12) {
                     VelvetButton(title: "Избранное", symbol: "bookmark") { path.append("saved") }
                     VelvetButton(title: "Новый чат", symbol: "square.and.pencil", prominent: true) { sheet = .add }
-                }.padding(16).background(Velvet.background.opacity(0.97))
+                }.padding(16).background(Velvet.background)
             }
             .navigationDestination(for: String.self) { id in ChatView(chatID: id) }
             .sheet(item: $sheet) { current in

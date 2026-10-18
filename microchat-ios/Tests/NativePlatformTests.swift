@@ -87,7 +87,7 @@ final class NativePlatformTests: XCTestCase {
         let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
         let originalWindow = scene.windows.first(where: \.isKeyWindow)
         for size in [CGSize(width: 393, height: 852), CGSize(width: 320, height: 693)] {
-            let controller = UIHostingController(rootView: HomeView().environmentObject(store).preferredColorScheme(.dark))
+            let controller = UIHostingController(rootView: HomeView().environmentObject(store).preferredColorScheme(.dark).tint(Velvet.coral))
             let window = UIWindow(windowScene: scene)
             window.frame = CGRect(origin: .zero, size: size)
             window.rootViewController = controller
